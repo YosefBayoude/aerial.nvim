@@ -587,13 +587,13 @@ local function get_icon_provider()
     return false
   end
   -- prefer mini.icons
-  local _, mini_icons = pcall(require, "mini.icons")
-  ---@diagnostic disable-next-line: undefined-field
-  if _G.MiniIcons then -- `_G.MiniIcons` is a better check to see if the module is setup
-    return function(kind)
-      return mini_icons.get("lsp", kind)
-    end
-  end
+  -- local _, mini_icons = pcall(require, "mini.icons")
+  -- ---@diagnostic disable-next-line: undefined-field
+  -- if _G.MiniIcons then -- `_G.MiniIcons` is a better check to see if the module is setup
+  --   return function(kind)
+  --     return mini_icons.get("lsp", kind)
+  --   end
+  -- end
 
   -- fallback to `lspkind`
   local has_lspkind, lspkind = pcall(require, "lspkind")
